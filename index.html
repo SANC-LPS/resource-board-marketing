@@ -113,16 +113,6 @@
   .hero-inuse{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);}
   .hero-inuse .tag{font-family:'Barlow',sans-serif;font-weight:500;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#7f93b0;}
   .hero-inuse .co{margin-top:4px;color:#fff;font-weight:500;font-size:14px;}
-  .placeholder-shot{
-    background:var(--paper);
-    border:1px solid rgba(255,255,255,0.14);
-    border-radius:4px;
-    display:flex;align-items:center;justify-content:center;
-    color:var(--steel);
-    font-family:'Barlow',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
-    text-align:center;padding:24px;
-  }
-  #shot-hero{aspect-ratio:16/10;}
   @media(max-width:900px){
     .hero-grid{grid-template-columns:1fr;gap:40px;}
     .hero{min-height:auto;padding:72px 0 64px;}
@@ -167,24 +157,67 @@
   .tile p{font-family:'Barlow',sans-serif;font-weight:400;font-size:15px;color:var(--steel);line-height:1.6;}
   .tile-a{grid-column:span 7;}
   .tile-b{grid-column:span 5;}
-  .tile-c{grid-column:span 6;}
-  .tile-d{grid-column:span 6;}
+  .tile-c{grid-column:span 7;}
+  .tile-d{grid-column:span 5;}
   .tile-e{grid-column:span 4;}
   .tile-f{grid-column:span 4;}
   .tile-g{grid-column:span 4;}
-  .tile .shot{
-    background:#f1f5f9;
-    border-radius:4px;
-    display:flex;align-items:center;justify-content:center;
-    color:var(--steel);
-    font-family:'Barlow',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
-    margin-top:auto;
-  }
-  #shot-board{aspect-ratio:16/9;}
-  #shot-timecard{aspect-ratio:4/3;}
   @media(max-width:900px){
     .bento{grid-template-columns:1fr;}
     .tile-a,.tile-b,.tile-c,.tile-d,.tile-e,.tile-f,.tile-g{grid-column:span 1;}
+  }
+
+  /* ============ MOCKUPS ============ */
+  .mk{background:#eef2f7;border:1px solid #dbe3ec;border-radius:4px;overflow:hidden;font-size:11px;line-height:1.4;}
+  .mk-bar{background:var(--navy);padding:8px 10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .mk-logo{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.05em;color:#fff;text-transform:uppercase;}
+  .mk-count{background:rgba(255,255,255,0.12);border:1px solid var(--amber);border-radius:3px;padding:1px 7px;font-size:10px;color:#fff;font-weight:600;}
+  .mk-live{font-size:10px;color:#4ade80;}
+  .mk-note{background:#fef3e2;border-left:3px solid var(--amber);margin:8px 10px 0;padding:6px 9px;font-size:10.5px;color:#854f0b;line-height:1.45;}
+  .mk-cols{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px;}
+  .mk-col{background:#fff;border:1px solid #dbe3ec;border-radius:4px;padding:8px;}
+  .mk-colhead{display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:7px;}
+  .mk-colname{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;color:var(--navy);text-transform:uppercase;line-height:1.15;}
+  .mk-pill{background:#eef2f7;border-radius:9px;padding:1px 6px;font-size:10px;color:#64748b;font-weight:600;}
+  .mk-card{border-left:3px solid #64748b;background:#f8fafc;border-radius:0 3px 3px 0;padding:5px 7px;margin-bottom:5px;}
+  .mk-card:last-child{margin-bottom:0;}
+  .mk-r1{display:flex;justify-content:space-between;align-items:baseline;gap:6px;}
+  .mk-nm{font-size:12px;font-weight:600;color:#0f172a;}
+  .mk-dt{font-size:10px;color:#15803d;flex-shrink:0;}
+  .mk-dt.soon{color:#92400e;}
+  .mk-rl{font-size:10px;font-weight:600;letter-spacing:0.02em;margin-top:1px;}
+  .mk-tag{background:#e2e8f0;color:#475569;border-radius:2px;padding:0 4px;font-weight:600;}
+  .mk-sub{font-size:10px;color:#475569;margin-top:2px;}
+  .mk-move{background:#fef3e2;color:#854f0b;border-radius:3px;padding:3px 6px;margin-top:4px;font-size:10px;}
+  .mk-chain{background:#f5f3ff;color:#5b21b6;border-radius:3px;padding:3px 6px;margin-top:4px;font-size:10px;}
+  .mk-off{opacity:0.7;}
+  .r-super{border-left-color:#4a5568;background:rgba(74,85,104,0.05);}
+  .r-super .mk-rl{color:#4a5568;}
+  .r-fore{border-left-color:#ca8a04;background:rgba(202,138,4,0.07);}
+  .r-fore .mk-rl{color:#ca8a04;}
+  .r-jour{border-left-color:#1d6fa8;background:rgba(29,111,168,0.06);}
+  .r-jour .mk-rl{color:#1d6fa8;}
+  .r-app{border-left-color:#16a34a;background:rgba(22,163,74,0.06);}
+  .r-app .mk-rl{color:#16a34a;}
+  .r-lab{border-left-color:#6a4fa0;background:rgba(106,79,160,0.06);}
+  .r-lab .mk-rl{color:#6a4fa0;}
+  .mk table{width:100%;table-layout:fixed;border-collapse:collapse;font-size:10px;background:#fff;}
+  .mk th{background:#f8fafc;color:#64748b;font-weight:600;letter-spacing:0.05em;text-align:left;padding:5px 7px;font-size:9.5px;}
+  .mk td{padding:6px 7px;border-top:1px solid #e2e8f0;color:#475569;}
+  .mk td.nm{color:#0f172a;font-weight:500;}
+  .mk-st{border-radius:3px;padding:1px 6px;font-weight:600;font-size:9.5px;white-space:nowrap;}
+  .st-pend{background:#f1f5f9;color:#475569;}
+  .st-appr{background:#dcfce7;color:#166534;}
+  .st-act{background:#ede9fe;color:#5b21b6;}
+  .st-gc{background:#fef3e2;color:#854f0b;}
+  .mk-num{text-align:center;font-variant-numeric:tabular-nums;}
+  .mk-gap{background:#fef2f2;color:#991b1b;font-weight:600;}
+  .mk-tot td{background:#f8fafc;font-weight:600;color:var(--navy);}
+  @media(max-width:600px){.mk-cols{grid-template-columns:1fr;}}
+  @media(max-width:600px){
+    .tile .mk table{font-size:9.5px;}
+    .tile .mk th{font-size:9px;padding:4px 5px;}
+    .tile .mk td{padding:5px 5px;}
   }
 
   /* ============ COMPANY ============ */
@@ -312,7 +345,7 @@
       <a href="#features">Product</a>
       <a href="#pricing">Pricing</a>
       <a href="#company">Company</a>
-      <a href="#early-access" class="btn btn-primary nav-cta">Request Early Access</a>
+      <a href="#early-access" class="btn btn-primary nav-cta">Book a walkthrough</a>
     </div>
   </div>
 </nav>
@@ -330,7 +363,7 @@
         </h1>
         <p class="hero-sub">Know where every worker is, where they're going next, and when they're there. Resource Board puts your entire labor force on one live screen — updated in real time, from any device. Built by field operations, not software people.</p>
         <div class="hero-actions">
-          <a href="#early-access" class="btn btn-primary">Request Early Access</a>
+          <a href="#early-access" class="btn btn-primary">Book a walkthrough</a>
           <a href="#features" class="btn btn-ghost-light">See how it works</a>
         </div>
         <div class="hero-inuse">
@@ -339,7 +372,67 @@
         </div>
       </div>
       <div>
-        <div id="shot-hero" class="placeholder-shot">Board screenshot — mid-drag</div>
+        <div class="mk" aria-hidden="true">
+          <div class="mk-bar">
+            <div class="mk-logo">Self-Perform Resource Board</div>
+            <div class="mk-count">GC 32&nbsp;&nbsp;SP 23</div>
+            <div class="mk-live">● Live sync</div>
+          </div>
+          <div class="mk-note">↑ Live headcount. GC is every active general-contractor resource on the board; SP is every active self-perform resource. People on vacation or at school are excluded automatically.</div>
+          <div class="mk-cols">
+            <div class="mk-col">
+              <div class="mk-colhead">
+                <div class="mk-colname">Riverside Medical Center</div>
+                <div class="mk-pill">12</div>
+              </div>
+              <div class="mk-card r-super">
+                <div class="mk-r1"><span class="mk-nm">Dan Whitmore</span><span class="mk-dt">until 4/30/2027</span></div>
+                <div class="mk-rl">GC SUPER <span class="mk-tag">GC</span> <span class="mk-tag">Salary</span></div>
+              </div>
+              <div class="mk-card r-fore">
+                <div class="mk-r1"><span class="mk-nm">Marcus Hale</span><span class="mk-dt">until 12/31/2026</span></div>
+                <div class="mk-rl">FOREMAN <span class="mk-tag">SP</span></div>
+                <div class="mk-sub">Nights · interior framing L4</div>
+              </div>
+              <div class="mk-card r-jour">
+                <div class="mk-r1"><span class="mk-nm">Sam Petrosino</span><span class="mk-dt soon">until 10/30/2026</span></div>
+                <div class="mk-rl">JOURNEYMAN <span class="mk-tag">SP</span></div>
+                <div class="mk-move">→ Harbor Point Tower 9/14/2026</div>
+              </div>
+              <div class="mk-card r-app mk-off">
+                <div class="mk-r1"><span class="mk-nm">Greg Mattick</span><span class="mk-dt">until 11/20/2026</span></div>
+                <div class="mk-rl">APPRENTICE <span class="mk-tag">SP</span></div>
+                <div class="mk-sub">On vacation · back 8/31/2026</div>
+              </div>
+            </div>
+            <div class="mk-col">
+              <div class="mk-colhead">
+                <div class="mk-colname">Harbor Point Tower</div>
+                <div class="mk-pill">10</div>
+              </div>
+              <div class="mk-card r-fore">
+                <div class="mk-r1"><span class="mk-nm">Ed Brannigan</span><span class="mk-dt">until 3/31/2027</span></div>
+                <div class="mk-rl">FOREMAN <span class="mk-tag">SP</span></div>
+                <div class="mk-sub">Decks 12 – 18 · pump Mon/Wed</div>
+              </div>
+              <div class="mk-card r-jour">
+                <div class="mk-r1"><span class="mk-nm">Chris Baldwin</span><span class="mk-dt soon">until 9/11/2026</span></div>
+                <div class="mk-rl">JOURNEYMAN <span class="mk-tag">SP</span> <span class="mk-tag">Chain</span></div>
+                <div class="mk-chain">→ Harbor Point 9/14 → Riverside 11/2</div>
+              </div>
+              <div class="mk-card r-lab">
+                <div class="mk-r1"><span class="mk-nm">Alan Prichard</span><span class="mk-dt">until 1/29/2027</span></div>
+                <div class="mk-rl">LABORER <span class="mk-tag">SP</span></div>
+                <div class="mk-sub">Light duty · through 9/4/2026</div>
+              </div>
+              <div class="mk-card r-app">
+                <div class="mk-r1"><span class="mk-nm">Hank Osterman</span><span class="mk-dt">until 11/6/2026</span></div>
+                <div class="mk-rl">APPRENTICE <span class="mk-tag">SP</span></div>
+                <div class="mk-sub">3rd year · school 9/14 – 12/17</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -352,8 +445,8 @@
     <h2>What labor scheduling costs you today</h2>
     <div class="problem-grid">
       <div class="problem-col">
-        <h3>Payroll gets entered twice</h3>
-        <p>Time arrives by text, email, and paper, then someone re-keys every line into Vista. It's several hours a week and every transcription is an opportunity for an error that surfaces on a paycheck.</p>
+        <h3>Nobody has the same picture</h3>
+        <p>The schedule lives in a spreadsheet on one machine. Supers, PMs, and executives all work from their own copy, and none of them match by Wednesday.</p>
       </div>
       <div class="problem-col">
         <h3>Availability is guesswork</h3>
@@ -387,26 +480,57 @@
     </div>
     <div class="bento">
       <div class="tile tile-a">
-        <h3>Live resource board</h3>
-        <p>Drag any person between projects and the board updates instantly for everyone. Color-coded by role, commitment, and availability. GC and self-perform crews in the same view. See who rolls off when, and who's available next, at a glance.</p>
-        <div id="shot-board" class="shot">Board — full view</div>
+        <h3>Request log</h3>
+        <p>Every project team member with credentials can request manpower from the board. Each request is stamped with who asked, what they needed, when, and what happened to it. The person moving people stops being a bottleneck and starts working from a queue — and there's a permanent record of every decision.</p>
+        <div class="mk" aria-hidden="true">
+          <table>
+            <colgroup><col style="width:22%"><col style="width:28%"><col style="width:26%"><col style="width:13%"><col style="width:11%"></colgroup>
+            <thead>
+              <tr><th>Requested by</th><th>Need</th><th>To project</th><th>Status</th><th>Type</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="nm">D. Whitmore</td><td>2 journeymen — framing</td><td>Riverside Medical</td><td><span class="mk-st st-pend">Pending</span></td><td>WORK</td></tr>
+              <tr><td class="nm">F. Delacroix</td><td>1 foreman — decks</td><td>Harbor Point Tower</td><td><span class="mk-st st-act">Active</span></td><td>CHAIN</td></tr>
+              <tr><td class="nm">G. Lindholm</td><td>1 laborer — callback</td><td>Cedar Valley DC</td><td><span class="mk-st st-appr">Approved</span></td><td>COVER</td></tr>
+              <tr><td class="nm">P. Brennan</td><td>1 apprentice — CUP</td><td>Lakeside Campus</td><td><span class="mk-st st-pend">Pending</span></td><td>COVER</td></tr>
+              <tr><td class="nm">V. Marchetti</td><td>1 laborer — site prep</td><td>Northgate HS</td><td><span class="mk-st st-gc">GC review</span></td><td>GC MOVE</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div class="tile tile-b">
-        <h3>Scheduled transfers and chain moves</h3>
-        <p>Set moves weeks ahead. Chain them so one employee runs Project A to B to C automatically on the dates you set. Executes on its own. Email and SMS reminders reach the employee 24 hours and 2 hours before shift start.</p>
+        <h3>Live resource board</h3>
+        <p>Drag any person between projects and the board updates instantly for everyone. Color-coded by role, commitment, and availability. GC and self-perform crews in one view. See who rolls off when and who's available next, at a glance.</p>
       </div>
       <div class="tile tile-c">
-        <h3>Digital timecards</h3>
-        <p>Foremen submit crew time from their phone against a pre-populated phase code grid. OT and DT flag automatically. Admin reviews, approves, or returns with notes. Crews who prefer paper can still use it — photograph the completed card and it populates the digital entry for you.</p>
-        <div id="shot-timecard" class="shot">Timecard entry</div>
+        <h3>Company-wide labor forecasting</h3>
+        <p>A rolling look-ahead across every active project, not one job at a time. See where demand exceeds the people you have, weeks before it becomes a phone call. One click copies it for company-wide distribution.</p>
+        <div class="mk" aria-hidden="true">
+          <table>
+            <colgroup><col style="width:36%"><col style="width:16%"><col style="width:16%"><col style="width:16%"><col style="width:16%"></colgroup>
+            <thead>
+              <tr><th>Project</th><th class="mk-num">8/10</th><th class="mk-num">8/17</th><th class="mk-num">8/24</th><th class="mk-num">8/31</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="nm">Riverside Medical</td><td class="mk-num">12</td><td class="mk-num">12</td><td class="mk-num">14</td><td class="mk-num">14</td></tr>
+              <tr><td class="nm">Harbor Point Tower</td><td class="mk-num">10</td><td class="mk-num">10</td><td class="mk-num">10</td><td class="mk-num">12</td></tr>
+              <tr><td class="nm">Northgate HS</td><td class="mk-num">8</td><td class="mk-num">8</td><td class="mk-num">6</td><td class="mk-num">6</td></tr>
+              <tr><td class="nm">Cedar Valley DC</td><td class="mk-num">7</td><td class="mk-num">5</td><td class="mk-num">5</td><td class="mk-num">4</td></tr>
+              <tr><td class="nm">Lakeside Campus</td><td class="mk-num">6</td><td class="mk-num">6</td><td class="mk-num">8</td><td class="mk-num">8</td></tr>
+              <tr class="mk-tot"><td>Demand</td><td class="mk-num">43</td><td class="mk-num">41</td><td class="mk-num">43</td><td class="mk-num">44</td></tr>
+              <tr><td class="nm">Available</td><td class="mk-num">44</td><td class="mk-num">44</td><td class="mk-num">42</td><td class="mk-num">41</td></tr>
+              <tr><td class="nm">Gap</td><td class="mk-num">0</td><td class="mk-num">0</td><td class="mk-num mk-gap">-1</td><td class="mk-num mk-gap">-3</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div class="tile tile-d">
-        <h3>Payroll export, not payroll entry</h3>
-        <p>Phase codes in Vista/Viewpoint format, tracked separately for GC and SP job numbers. Approved time exports as a CSV that matches PR Timecard Entry. Nobody re-keys anything.</p>
+        <h3>Scheduled and chain transfers</h3>
+        <p>Set moves weeks ahead. Chain them so one person runs Project A to B to C automatically on the dates you set. Email and SMS reminders reach the employee 24 hours and 2 hours before shift start.</p>
       </div>
       <div class="tile tile-e">
-        <h3>Three-week look-ahead</h3>
-        <p>Who's committed where and for how long, plus a daily schedule for floating employees. One click copies it for company-wide email.</p>
+        <h3>Digital timecards</h3>
+        <p>Foremen submit crew time from their phone. OT and DT flag automatically. Admin reviews, approves, or returns with notes.</p>
       </div>
       <div class="tile tile-f">
         <h3>Permissions that hold</h3>
@@ -414,7 +538,7 @@
       </div>
       <div class="tile tile-g">
         <h3>Works in the field</h3>
-        <p>Full functionality on phone and tablet. One tap from the dashboard to enter time. Office and field always see the same data.</p>
+        <p>Full functionality on phone and tablet. Office and field always see the same data.</p>
       </div>
     </div>
   </div>
@@ -431,8 +555,8 @@
         <p>Resource Board was built to run crews across multiple active projects at a self-perform contractor. Every feature exists because something in the existing process broke.</p>
       </div>
       <div class="problem-col">
-        <h3>It replaced Microsoft Project</h3>
-        <p>Project schedules tasks, not people, and it couldn't answer who was available or where they were going next. Resource Board runs a live workforce daily and changes whenever a foreman says something doesn't work.</p>
+        <h3>It replaced spreadsheet management</h3>
+        <p>Assignments used to live in local spreadsheets that only one person could see and nobody trusted. Resource Board systemizes the same process and makes it visible company-wide, in real time.</p>
       </div>
     </div>
   </div>
@@ -442,23 +566,23 @@
 <section id="pricing" class="light section-pad pricing">
   <div class="wrap">
     <div class="eyebrow"><span class="eyebrow-txt">Pricing</span></div>
-    <h2>Priced per seat. No implementation fee.</h2>
-    <p class="pricing-head-sub">Seats are for the people who schedule and approve — schedulers, managers, and foremen.</p>
+    <h2>Priced by seat count. Billed annually.</h2>
+    <p class="pricing-head-sub">Seats are for the people who schedule, request, and approve — managers, supers, and foremen. Early access pricing, locked for your first two years.</p>
     <div class="pricing-grid">
       <div class="price-col">
         <div class="price-card">
           <div class="price-tier">Starter</div>
-          <div class="price-amount num">$49<span class="per">/month</span></div>
-          <div class="price-limit">Up to 5 users</div>
+          <div class="price-amount num">$4,800<span class="per">/year</span></div>
+          <div class="price-limit">Up to 25 users</div>
           <ul class="price-features">
             <li>Live resource board</li>
+            <li>Manpower request log</li>
             <li>Scheduled and chain transfers</li>
-            <li>Digital timecards with payroll CSV export</li>
-            <li>Three-week look-ahead reporting</li>
-            <li>Permission profiles and overrides</li>
+            <li>Company-wide labor forecasting</li>
+            <li>Digital timecards and permissions</li>
           </ul>
           <div class="price-cta">
-            <a href="#early-access" class="btn btn-ghost-dark">Request Early Access</a>
+            <a href="#early-access" class="btn btn-ghost-dark">Book a walkthrough</a>
           </div>
         </div>
       </div>
@@ -466,34 +590,34 @@
         <div class="price-tag-popular">Most popular</div>
         <div class="price-card featured">
           <div class="price-tier">Growth</div>
-          <div class="price-amount num">$99<span class="per">/month</span></div>
-          <div class="price-limit">Up to 15 users</div>
+          <div class="price-amount num">$9,600<span class="per">/year</span></div>
+          <div class="price-limit">Up to 50 users</div>
           <ul class="price-features">
             <li>Live resource board</li>
+            <li>Manpower request log</li>
             <li>Scheduled and chain transfers</li>
-            <li>Digital timecards with payroll CSV export</li>
-            <li>Three-week look-ahead reporting</li>
-            <li>Permission profiles and overrides</li>
+            <li>Company-wide labor forecasting</li>
+            <li>Digital timecards and permissions</li>
           </ul>
           <div class="price-cta">
-            <a href="#early-access" class="btn btn-ghost-dark">Request Early Access</a>
+            <a href="#early-access" class="btn btn-ghost-dark">Book a walkthrough</a>
           </div>
         </div>
       </div>
       <div class="price-col">
         <div class="price-card">
           <div class="price-tier">Professional</div>
-          <div class="price-amount num">$179<span class="per">/month</span></div>
-          <div class="price-limit">Up to 30 users</div>
+          <div class="price-amount num">$16,800<span class="per">/year</span></div>
+          <div class="price-limit">Up to 100 users</div>
           <ul class="price-features">
             <li>Live resource board</li>
+            <li>Manpower request log</li>
             <li>Scheduled and chain transfers</li>
-            <li>Digital timecards with payroll CSV export</li>
-            <li>Three-week look-ahead reporting</li>
-            <li>Permission profiles and overrides</li>
+            <li>Company-wide labor forecasting</li>
+            <li>Digital timecards and permissions</li>
           </ul>
           <div class="price-cta">
-            <a href="#early-access" class="btn btn-ghost-dark">Request Early Access</a>
+            <a href="#early-access" class="btn btn-ghost-dark">Book a walkthrough</a>
           </div>
         </div>
       </div>
@@ -515,8 +639,8 @@
 <section id="early-access" class="deep early">
   <div class="wrap">
     <div class="wrap-tight">
-      <h2>Request early access.</h2>
-      <p>We're onboarding a small number of self-perform contractors. Tell us about your operation and we'll be in touch.</p>
+      <h2>Book a walkthrough.</h2>
+      <p>We're onboarding a small number of self-perform contractors. Tell us about your operation and we'll set up a working session on your own data.</p>
       <form name="early-access" method="POST" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="early-access">
         <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
@@ -554,7 +678,7 @@
           <label for="ea-message">Message (optional)</label>
           <textarea id="ea-message" name="message"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary btn-full">Request Early Access</button>
+        <button type="submit" class="btn btn-primary btn-full">Book a walkthrough</button>
       </form>
     </div>
   </div>
@@ -581,7 +705,7 @@
         <ul>
           <li><a href="#features">Features</a></li>
           <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#early-access">Request Access</a></li>
+          <li><a href="#early-access">Book a walkthrough</a></li>
         </ul>
       </div>
       <div class="footer-col">

@@ -14,52 +14,596 @@
   :root{
     --navy:       #0e2241;
     --navy-deep:  #081729;
+    --navy-mid:   #1a3a5c;
     --amber:      #d97706;
     --amber-hover:#f59e0b;
+    --amber-dark: #b45309;
     --paper:      #f8fafc;
+    --steel:      #64748b;
+    --steel-light:#a9bcd6;
+    --line:       rgba(255,255,255,0.09);
+    --line-dark:  #e2e8f0;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  html,body{height:100%;}
+  html{scroll-behavior:smooth;}
+  #features,#pricing,#early-access,#footer,#company{scroll-margin-top:80px;}
   body{
-    background:var(--navy);
-    color:var(--paper);
-    font-family:'Barlow',sans-serif;
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:20px;
-  }
-  h1{
-    font-family:'Barlow Condensed',sans-serif;
-    font-weight:700;
-    font-size:clamp(32px,7vw,56px);
-    letter-spacing:0.04em;
-    text-transform:uppercase;
-    color:#fff;
-    line-height:1;
-  }
-  .rule{
-    width:60px;
-    height:3px;
-    background:var(--amber);
-    margin:18px 0 20px;
-    border:none;
-  }
-  .tagline{
+    background:#fff;
+    color:#0f172a;
     font-family:'Barlow',sans-serif;
     font-weight:400;
-    font-size:clamp(14px,2.5vw,17px);
-    color:#94a3b8;
+    font-size:16px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3,h4{font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;line-height:1.05;letter-spacing:0.02em;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+  .num{font-variant-numeric:tabular-nums;}
+
+  /* ============ SECTION FRAMES ============ */
+  section.dark{background:var(--navy);color:#fff;position:relative;}
+  section.deep{background:var(--navy-deep);color:#fff;position:relative;}
+  section.light{background:#fff;color:#0f172a;}
+  section.dark::before,
+  section.deep::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size:40px 40px;
+  }
+  section > .wrap{position:relative;z-index:1;}
+
+  /* ============ EYEBROW ============ */
+  .eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .eyebrow::before{content:"";display:block;width:20px;height:2px;background:var(--amber);}
+  .eyebrow-txt{font-family:'Barlow',sans-serif;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:var(--amber);}
+  .light .eyebrow-txt{color:var(--amber-dark);}
+  .light .eyebrow::before{background:var(--amber-dark);}
+
+  /* ============ BUTTONS ============ */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-height:44px;padding:11px 22px;
+    font-family:'Barlow',sans-serif;font-weight:600;font-size:14px;
     letter-spacing:0.02em;
+    border:1px solid transparent;border-radius:4px;
+    cursor:pointer;transition:background 120ms ease, border-color 120ms ease, color 120ms ease;
+    text-decoration:none;
+  }
+  .btn:focus-visible{outline:2px solid var(--amber-hover);outline-offset:2px;}
+  .btn-primary{background:var(--amber);color:#2b1503;}
+  .btn-primary:hover{background:var(--amber-hover);}
+  .btn-ghost-light{background:transparent;border-color:rgba(255,255,255,0.2);color:#fff;}
+  .btn-ghost-light:hover{border-color:rgba(255,255,255,0.5);}
+  .btn-ghost-dark{background:transparent;border-color:var(--line-dark);color:var(--navy);}
+  .btn-ghost-dark:hover{border-color:var(--steel);}
+  .btn-full{width:100%;}
+
+  /* ============ NAV ============ */
+  nav.top{
+    position:sticky;top:0;z-index:100;
+    background:var(--navy);
+    border-bottom:1px solid var(--line);
+  }
+  nav.top .wrap{display:flex;align-items:center;gap:24px;height:64px;}
+  .brand{display:flex;align-items:center;gap:10px;color:#fff;}
+  .brand-mark{flex-shrink:0;width:24px;height:24px;}
+  .brand-word{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;letter-spacing:0.14em;text-transform:uppercase;color:#fff;}
+  .nav-links{margin-left:auto;display:flex;align-items:center;gap:28px;}
+  .nav-links a{font-family:'Barlow',sans-serif;font-weight:500;font-size:14px;color:#cbd5e1;letter-spacing:0.02em;}
+  .nav-links a:hover{color:#fff;}
+  .nav-links a:focus-visible{outline:2px solid var(--amber-hover);outline-offset:4px;}
+  .nav-cta{margin-left:20px;}
+  @media(max-width:768px){
+    .nav-links a:not(.btn){display:none;}
+    .nav-links{gap:0;}
+  }
+
+  /* ============ HERO ============ */
+  .hero{min-height:90vh;display:flex;align-items:center;padding:80px 0;}
+  .hero-grid{display:grid;grid-template-columns:45fr 55fr;gap:64px;align-items:center;}
+  .hero h1{font-size:clamp(38px,6vw,68px);line-height:0.94;color:#fff;letter-spacing:0.005em;}
+  .hero h1 span{display:block;}
+  .hero h1 .accent{color:var(--amber);}
+  .hero-sub{margin-top:22px;font-family:'Barlow',sans-serif;font-weight:400;font-size:17px;line-height:1.55;color:var(--steel-light);max-width:460px;}
+  .hero-actions{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;}
+  .hero-inuse{margin-top:36px;padding-top:20px;border-top:1px solid var(--line);}
+  .hero-inuse .tag{font-family:'Barlow',sans-serif;font-weight:500;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#7f93b0;}
+  .hero-inuse .co{margin-top:4px;color:#fff;font-weight:500;font-size:14px;}
+  .placeholder-shot{
+    background:var(--paper);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:4px;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--steel);
+    font-family:'Barlow',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+    text-align:center;padding:24px;
+  }
+  #shot-hero{aspect-ratio:16/10;}
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:40px;}
+    .hero{min-height:auto;padding:72px 0 64px;}
+  }
+
+  /* ============ PROBLEM ============ */
+  .section-pad{padding:100px 0;}
+  .problem h2,.solution h2,.features h2,.proof h2,.pricing h2,.early h2{
+    font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(30px,4.5vw,46px);color:#fff;line-height:1.05;text-transform:uppercase;letter-spacing:0.02em;
+  }
+  .light h2{color:var(--navy);}
+  .problem-grid{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+  .problem-col{padding:0 24px;border-left:1px solid var(--line);}
+  .problem-col:first-child{border-left:0;padding-left:0;}
+  .problem-col h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;color:#fff;text-transform:uppercase;letter-spacing:0.02em;margin-bottom:12px;}
+  .problem-col p{font-family:'Barlow',sans-serif;font-weight:400;font-size:15px;color:var(--steel-light);line-height:1.6;}
+  @media(max-width:768px){
+    .problem-grid{grid-template-columns:1fr;gap:32px;}
+    .problem-col{border-left:0;padding:0;}
+  }
+
+  /* ============ SOLUTION PIVOT ============ */
+  .solution{padding:100px 0;text-align:center;}
+  .solution .wrap-tight{max-width:800px;margin:0 auto;}
+  .solution .eyebrow{justify-content:center;}
+  .solution p{margin-top:22px;font-size:17px;line-height:1.6;color:var(--steel);}
+
+  /* ============ FEATURES ============ */
+  .features{padding:100px 0;}
+  .features-head{margin-bottom:56px;}
+  .bento{
+    display:grid;
+    grid-template-columns:repeat(12,1fr);
+    gap:1px;
+    background:var(--line-dark);
+    border:1px solid var(--line-dark);
+    border-radius:4px;
+    overflow:hidden;
+  }
+  .tile{background:#fff;padding:32px;display:flex;flex-direction:column;gap:14px;}
+  .tile h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;color:var(--navy);text-transform:uppercase;letter-spacing:0.02em;}
+  .tile p{font-family:'Barlow',sans-serif;font-weight:400;font-size:15px;color:var(--steel);line-height:1.6;}
+  .tile-a{grid-column:span 7;}
+  .tile-b{grid-column:span 5;}
+  .tile-c{grid-column:span 6;}
+  .tile-d{grid-column:span 6;}
+  .tile-e{grid-column:span 4;}
+  .tile-f{grid-column:span 4;}
+  .tile-g{grid-column:span 4;}
+  .tile .shot{
+    background:#f1f5f9;
+    border-radius:4px;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--steel);
+    font-family:'Barlow',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+    margin-top:auto;
+  }
+  #shot-board{aspect-ratio:16/9;}
+  #shot-timecard{aspect-ratio:4/3;}
+  @media(max-width:900px){
+    .bento{grid-template-columns:1fr;}
+    .tile-a,.tile-b,.tile-c,.tile-d,.tile-e,.tile-f,.tile-g{grid-column:span 1;}
+  }
+
+  /* ============ COMPANY ============ */
+  .company-grid{margin-top:56px;display:grid;grid-template-columns:repeat(2,1fr);gap:0;}
+  .company-grid .problem-col{border-left:1px solid var(--line);padding:0 24px;}
+  .company-grid .problem-col:first-child{border-left:0;padding-left:0;}
+  @media(max-width:768px){
+    .company-grid{grid-template-columns:1fr;gap:32px;}
+    .company-grid .problem-col{border-left:0;padding:0;}
+  }
+
+  /* ============ PRICING ============ */
+  .pricing-head-sub{margin-top:12px;font-size:15px;color:var(--steel);}
+  .pricing-grid{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .price-col{position:relative;padding-top:12px;}
+  .price-tag-popular{
+    position:absolute;top:-24px;left:0;
+    font-family:'Barlow',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber-dark);
+  }
+  .price-card{
+    border:1px solid var(--line-dark);
+    border-radius:4px;
+    padding:32px;
+    display:flex;flex-direction:column;height:100%;
+    background:#fff;
+  }
+  .price-card.featured{border-top:2px solid var(--amber);}
+  .price-tier{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:0.14em;color:var(--navy);}
+  .price-amount{
+    margin-top:14px;
+    font-family:'Barlow Condensed',sans-serif;font-weight:700;
+    font-size:clamp(36px,5vw,52px);color:var(--navy);
+    line-height:1;
+    font-variant-numeric:tabular-nums;
+  }
+  .price-amount .per{font-family:'Barlow',sans-serif;font-weight:400;font-size:15px;color:var(--steel);letter-spacing:0;text-transform:none;margin-left:6px;}
+  .price-limit{margin-top:8px;font-size:14px;color:var(--steel);}
+  .price-features{margin-top:20px;padding-top:20px;border-top:1px solid var(--line-dark);display:flex;flex-direction:column;gap:10px;list-style:none;}
+  .price-features li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#0f172a;line-height:1.5;}
+  .price-features li::before{content:"";display:block;flex-shrink:0;width:14px;height:14px;margin-top:4px;background:no-repeat center/contain url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path fill='none' stroke='%230e2241' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M2 7.5 L6 11 L12 3.5'/></svg>");}
+  .price-cta{margin-top:auto;padding-top:24px;}
+  .price-cta .btn{width:100%;}
+  @media(max-width:900px){
+    .pricing-grid{grid-template-columns:1fr;}
+  }
+
+  .enterprise-band{margin-top:64px;background:var(--navy);color:#fff;padding:48px;border-radius:4px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;position:relative;overflow:hidden;}
+  .enterprise-band::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size:40px 40px;
+  }
+  .enterprise-band > *{position:relative;z-index:1;}
+  .enterprise-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:0.14em;color:var(--amber);margin-bottom:10px;}
+  .enterprise-copy{color:#cbd5e1;font-size:15px;line-height:1.55;max-width:640px;}
+  @media(max-width:768px){
+    .enterprise-band{grid-template-columns:1fr;padding:32px;}
+  }
+
+  /* ============ EARLY ACCESS ============ */
+  .early{padding:100px 0;}
+  .early .wrap-tight{max-width:640px;margin:0 auto;text-align:center;}
+  .early p{margin-top:16px;color:var(--steel-light);font-size:16px;line-height:1.55;}
+  .early form{margin-top:40px;text-align:left;display:flex;flex-direction:column;gap:18px;}
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .field label{font-family:'Barlow',sans-serif;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.14em;color:var(--steel-light);}
+  .field input,.field select,.field textarea{
+    background:transparent;
+    color:#fff;
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:4px;
+    padding:12px;
+    font-family:'Barlow',sans-serif;font-size:14px;
+    width:100%;
+    min-height:44px;
+  }
+  .field textarea{min-height:100px;resize:vertical;}
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;
+    border-color:var(--amber);
+  }
+  .field select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'><path fill='none' stroke='%23a9bcd6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M1 1.5 L6 6.5 L11 1.5'/></svg>");background-repeat:no-repeat;background-position:right 12px center;padding-right:36px;}
+  .field select option{background:var(--navy);color:#fff;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media(max-width:600px){
+    .field-row{grid-template-columns:1fr;}
+  }
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--navy-deep);color:#a9bcd6;border-top:1px solid var(--line);padding:56px 0 24px;}
+  .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;}
+  .footer-col h4{font-family:'Barlow',sans-serif;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.16em;color:#7f93b0;margin-bottom:14px;}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .footer-col a{color:#cbd5e1;font-size:14px;}
+  .footer-col a:hover{color:#fff;}
+  .footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .footer-tag{font-size:14px;color:#a9bcd6;line-height:1.55;}
+  .footer-bottom{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:#7f93b0;}
+  .footer-bottom .legal a{margin-left:20px;color:#a9bcd6;}
+  @media(max-width:900px){
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:560px){
+    .footer-grid{grid-template-columns:1fr;}
   }
 </style>
 </head>
 <body>
-<h1>Resource Board</h1>
-<hr class="rule">
-<p class="tagline">Coming soon</p>
+
+<!-- ============ NAV ============ -->
+<nav class="top">
+  <div class="wrap">
+    <a href="#" class="brand" aria-label="Resource Board home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="0" y="0" width="32" height="32" rx="4" ry="4" fill="#1a3a5c"/>
+        <rect x="6" y="14.5" width="20" height="3" fill="#ffffff"/>
+        <rect x="14.5" y="6" width="3" height="20" fill="#ffffff"/>
+        <circle cx="23" cy="9" r="3.5" fill="#d97706"/>
+      </svg>
+      <span class="brand-word">Resource Board</span>
+    </a>
+    <div class="nav-links">
+      <a href="#features">Product</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#company">Company</a>
+      <a href="#early-access" class="btn btn-primary nav-cta">Request Early Access</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="dark hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow"><span class="eyebrow-txt">For self-perform GC / CM contractors</span></div>
+        <h1>
+          <span>Every person.</span>
+          <span>Every project.</span>
+          <span class="accent">One live board.</span>
+        </h1>
+        <p class="hero-sub">Know where every worker is, where they're going next, and when they're there. Resource Board puts your entire labor force on one live screen — updated in real time, from any device. Built by field operations, not software people.</p>
+        <div class="hero-actions">
+          <a href="#early-access" class="btn btn-primary">Request Early Access</a>
+          <a href="#features" class="btn btn-ghost-light">See how it works</a>
+        </div>
+        <div class="hero-inuse">
+          <div class="tag">Built and proven in the field</div>
+          <div class="co">In daily production use</div>
+        </div>
+      </div>
+      <div>
+        <div id="shot-hero" class="placeholder-shot">Board screenshot — mid-drag</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM ============ -->
+<section class="deep section-pad problem">
+  <div class="wrap">
+    <div class="eyebrow"><span class="eyebrow-txt">The way it works today</span></div>
+    <h2>You can't move what you can't see.</h2>
+    <div class="problem-grid">
+      <div class="problem-col">
+        <h3>Time comes in by text, email, and paper</h3>
+        <p>Then somebody keys every line into Vista by hand. Hours of payroll entry a week, and every transcription is a chance to be wrong.</p>
+      </div>
+      <div class="problem-col">
+        <h3>Nobody knows who's free next week</h3>
+        <p>A project needs four more hands and finding them means calling around. The answer lives in three people's heads and none of them agree.</p>
+      </div>
+      <div class="problem-col">
+        <h3>The schedule nobody else can see</h3>
+        <p>Assignments live in a spreadsheet on one machine. By the time it's emailed out it's already wrong, so everyone keeps their own copy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOLUTION PIVOT ============ -->
+<section class="light solution">
+  <div class="wrap">
+    <div class="wrap-tight">
+      <div class="eyebrow"><span class="eyebrow-txt">What changes</span></div>
+      <h2>One board. Everyone sees the same thing. Right now.</h2>
+      <p>Every assignment, transfer, callback, and hour lives in one place. Change it once and it's changed for the foreman on site, the ops manager in the office, and the executive looking at next month.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section id="features" class="light features">
+  <div class="wrap">
+    <div class="features-head">
+      <div class="eyebrow"><span class="eyebrow-txt">Capabilities</span></div>
+      <h2>Built around how self-perform work actually runs.</h2>
+    </div>
+    <div class="bento">
+      <div class="tile tile-a">
+        <h3>Live resource board</h3>
+        <p>Drag any person between projects and the board updates instantly for everyone. Color-coded by role, commitment, and availability. GC and self-perform crews in the same view. See who rolls off when, and who's available next, at a glance.</p>
+        <div id="shot-board" class="shot">Board — full view</div>
+      </div>
+      <div class="tile tile-b">
+        <h3>Scheduled transfers and chain moves</h3>
+        <p>Set moves weeks ahead. Chain them so one employee runs Project A to B to C automatically on the dates you set. Executes on its own. Email and SMS reminders reach the employee 24 hours and 2 hours before shift start.</p>
+      </div>
+      <div class="tile tile-c">
+        <h3>Digital timecards</h3>
+        <p>Foremen submit crew time from their phone against a pre-populated phase code grid. OT and DT flag automatically. Admin reviews, approves, or returns with notes. Crews who prefer paper can still use it — photograph the completed card and it populates the digital entry for you.</p>
+        <div id="shot-timecard" class="shot">Timecard entry</div>
+      </div>
+      <div class="tile tile-d">
+        <h3>Payroll export, not payroll entry</h3>
+        <p>Phase codes in Vista/Viewpoint format, tracked separately for GC and SP job numbers. Approved time exports as a CSV that matches PR Timecard Entry. Nobody re-keys anything.</p>
+      </div>
+      <div class="tile tile-e">
+        <h3>Three-week look-ahead</h3>
+        <p>Who's committed where and for how long, plus a daily schedule for floating employees. One click copies it for company-wide email.</p>
+      </div>
+      <div class="tile tile-f">
+        <h3>Permissions that hold</h3>
+        <p>Owner, Administrator, Manager, Foreman, Viewer, with per-user overrides. Only admins grant permissions. Sensitive fields stay gated by role.</p>
+      </div>
+      <div class="tile tile-g">
+        <h3>Works in the field</h3>
+        <p>Full functionality on phone and tablet. One tap from the dashboard to enter time. Office and field always see the same data.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPANY ============ -->
+<section id="company" class="dark section-pad proof">
+  <div class="wrap">
+    <div class="eyebrow"><span class="eyebrow-txt">Who built this</span></div>
+    <h2>Written by a Director of Field Operations. For Directors of Field Operations.</h2>
+    <div class="problem-grid company-grid">
+      <div class="problem-col">
+        <h3>It solves a problem we had</h3>
+        <p>Resource Board was built inside a self-perform operation running crews across multiple active projects. Every feature exists because the schedule broke, payroll got re-keyed, or somebody showed up at the wrong job. Nothing in it was designed in a conference room.</p>
+      </div>
+      <div class="problem-col">
+        <h3>It's in production, not in beta</h3>
+        <p>The board runs a live workforce every day — assignments, transfers, timecards, and look-ahead reporting. It's been stress-tested by foremen who don't have patience for software that doesn't work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section id="pricing" class="light section-pad pricing">
+  <div class="wrap">
+    <div class="eyebrow"><span class="eyebrow-txt">Pricing</span></div>
+    <h2>Priced per seat. No implementation fee.</h2>
+    <p class="pricing-head-sub">Seats are for the people who schedule and approve — schedulers, managers, and foremen.</p>
+    <div class="pricing-grid">
+      <div class="price-col">
+        <div class="price-card">
+          <div class="price-tier">Starter</div>
+          <div class="price-amount num">$49<span class="per">/month</span></div>
+          <div class="price-limit">Up to 5 users</div>
+          <ul class="price-features">
+            <li>Live resource board</li>
+            <li>Scheduled and chain transfers</li>
+            <li>Digital timecards with payroll CSV export</li>
+            <li>Three-week look-ahead reporting</li>
+            <li>Permission profiles and overrides</li>
+          </ul>
+          <div class="price-cta">
+            <a href="#early-access" class="btn btn-ghost-dark">Request Early Access</a>
+          </div>
+        </div>
+      </div>
+      <div class="price-col">
+        <div class="price-tag-popular">Most popular</div>
+        <div class="price-card featured">
+          <div class="price-tier">Growth</div>
+          <div class="price-amount num">$99<span class="per">/month</span></div>
+          <div class="price-limit">Up to 15 users</div>
+          <ul class="price-features">
+            <li>Live resource board</li>
+            <li>Scheduled and chain transfers</li>
+            <li>Digital timecards with payroll CSV export</li>
+            <li>Three-week look-ahead reporting</li>
+            <li>Permission profiles and overrides</li>
+          </ul>
+          <div class="price-cta">
+            <a href="#early-access" class="btn btn-ghost-dark">Request Early Access</a>
+          </div>
+        </div>
+      </div>
+      <div class="price-col">
+        <div class="price-card">
+          <div class="price-tier">Professional</div>
+          <div class="price-amount num">$179<span class="per">/month</span></div>
+          <div class="price-limit">Up to 30 users</div>
+          <ul class="price-features">
+            <li>Live resource board</li>
+            <li>Scheduled and chain transfers</li>
+            <li>Digital timecards with payroll CSV export</li>
+            <li>Three-week look-ahead reporting</li>
+            <li>Permission profiles and overrides</li>
+          </ul>
+          <div class="price-cta">
+            <a href="#early-access" class="btn btn-ghost-dark">Request Early Access</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="enterprise-band">
+      <div>
+        <div class="enterprise-label">Enterprise</div>
+        <div class="enterprise-copy">Unlimited users, custom configuration, dedicated onboarding, and priority support for larger self-perform operations.</div>
+      </div>
+      <div>
+        <a href="#early-access" class="btn btn-primary">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EARLY ACCESS ============ -->
+<section id="early-access" class="deep early">
+  <div class="wrap">
+    <div class="wrap-tight">
+      <h2>Request early access.</h2>
+      <p>We're onboarding a small number of self-perform contractors. Tell us about your operation and we'll be in touch.</p>
+      <form name="early-access" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="early-access">
+        <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
+        <div class="field-row">
+          <div class="field">
+            <label for="ea-name">Name</label>
+            <input id="ea-name" name="name" type="text" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="ea-company">Company</label>
+            <input id="ea-company" name="company" type="text" required autocomplete="organization">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="ea-email">Work email</label>
+            <input id="ea-email" name="email" type="email" required autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="ea-phone">Phone (optional)</label>
+            <input id="ea-phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+        </div>
+        <div class="field">
+          <label for="ea-headcount">Approximate field headcount</label>
+          <select id="ea-headcount" name="headcount" required>
+            <option value="">Select…</option>
+            <option value="1-25">1–25</option>
+            <option value="26-75">26–75</option>
+            <option value="76-200">76–200</option>
+            <option value="200+">200+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="ea-message">Message (optional)</label>
+          <textarea id="ea-message" name="message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">Request Early Access</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer id="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+            <rect x="0" y="0" width="32" height="32" rx="4" ry="4" fill="#1a3a5c"/>
+            <rect x="6" y="14.5" width="20" height="3" fill="#ffffff"/>
+            <rect x="14.5" y="6" width="3" height="20" fill="#ffffff"/>
+            <circle cx="23" cy="9" r="3.5" fill="#d97706"/>
+          </svg>
+          <span class="brand-word">Resource Board</span>
+        </div>
+        <p class="footer-tag">A product of Labor Production Services.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#early-access">Request Access</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li>Labor Production Services</li>
+          <li><a href="https://laborproductionservices.com">laborproductionservices.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@resourceboard.io">hello@resourceboard.io</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Labor Production Services, LLC. All rights reserved.</div>
+      <div class="legal"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

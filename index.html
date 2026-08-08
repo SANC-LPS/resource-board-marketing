@@ -50,8 +50,8 @@
   section.deep::before{
     content:"";position:absolute;inset:0;pointer-events:none;
     background-image:
-      linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px);
+      linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
     background-size:40px 40px;
   }
   section > .wrap{position:relative;z-index:1;}
@@ -131,13 +131,13 @@
   /* ============ PROBLEM ============ */
   .section-pad{padding:100px 0;}
   .problem h2,.solution h2,.features h2,.proof h2,.pricing h2,.early h2{
-    font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:clamp(30px,4.5vw,46px);color:#fff;line-height:1.05;text-transform:uppercase;letter-spacing:0.02em;
+    font-family:'Barlow',sans-serif;font-weight:600;font-size:clamp(26px,3.4vw,38px);color:#fff;line-height:1.2;text-transform:none;letter-spacing:-0.01em;
   }
   .light h2{color:var(--navy);}
   .problem-grid{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
   .problem-col{padding:0 24px;border-left:1px solid var(--line);}
   .problem-col:first-child{border-left:0;padding-left:0;}
-  .problem-col h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;color:#fff;text-transform:uppercase;letter-spacing:0.02em;margin-bottom:12px;}
+  .problem-col h3{font-family:'Barlow',sans-serif;font-weight:600;font-size:17px;color:#fff;text-transform:none;letter-spacing:0;margin-bottom:12px;}
   .problem-col p{font-family:'Barlow',sans-serif;font-weight:400;font-size:15px;color:var(--steel-light);line-height:1.6;}
   @media(max-width:768px){
     .problem-grid{grid-template-columns:1fr;gap:32px;}
@@ -163,7 +163,7 @@
     overflow:hidden;
   }
   .tile{background:#fff;padding:32px;display:flex;flex-direction:column;gap:14px;}
-  .tile h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;color:var(--navy);text-transform:uppercase;letter-spacing:0.02em;}
+  .tile h3{font-family:'Barlow',sans-serif;font-weight:600;font-size:17px;color:var(--navy);text-transform:none;letter-spacing:0;}
   .tile p{font-family:'Barlow',sans-serif;font-weight:400;font-size:15px;color:var(--steel);line-height:1.6;}
   .tile-a{grid-column:span 7;}
   .tile-b{grid-column:span 5;}
@@ -212,7 +212,7 @@
     background:#fff;
   }
   .price-card.featured{border-top:2px solid var(--amber);}
-  .price-tier{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:0.14em;color:var(--navy);}
+  .price-tier{font-family:'Barlow',sans-serif;font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:0.1em;color:var(--navy);}
   .price-amount{
     margin-top:14px;
     font-family:'Barlow Condensed',sans-serif;font-weight:700;
@@ -235,12 +235,12 @@
   .enterprise-band::before{
     content:"";position:absolute;inset:0;pointer-events:none;
     background-image:
-      linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px);
+      linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
     background-size:40px 40px;
   }
   .enterprise-band > *{position:relative;z-index:1;}
-  .enterprise-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:0.14em;color:var(--amber);margin-bottom:10px;}
+  .enterprise-label{font-family:'Barlow',sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:0.12em;color:var(--amber);margin-bottom:10px;}
   .enterprise-copy{color:#cbd5e1;font-size:15px;line-height:1.55;max-width:640px;}
   @media(max-width:768px){
     .enterprise-band{grid-template-columns:1fr;padding:32px;}
@@ -349,19 +349,19 @@
 <section class="deep section-pad problem">
   <div class="wrap">
     <div class="eyebrow"><span class="eyebrow-txt">The way it works today</span></div>
-    <h2>You can't move what you can't see.</h2>
+    <h2>What labor scheduling costs you today</h2>
     <div class="problem-grid">
       <div class="problem-col">
-        <h3>Time comes in by text, email, and paper</h3>
-        <p>Then somebody keys every line into Vista by hand. Hours of payroll entry a week, and every transcription is a chance to be wrong.</p>
+        <h3>Payroll gets entered twice</h3>
+        <p>Time arrives by text, email, and paper, then someone re-keys every line into Vista. It's several hours a week and every transcription is an opportunity for an error that surfaces on a paycheck.</p>
       </div>
       <div class="problem-col">
-        <h3>Nobody knows who's free next week</h3>
-        <p>A project needs four more hands and finding them means calling around. The answer lives in three people's heads and none of them agree.</p>
+        <h3>Availability is guesswork</h3>
+        <p>When a project needs four more people next week, finding them means calling supers one at a time. There's no single view of who rolls off when, so the answer depends on who you ask.</p>
       </div>
       <div class="problem-col">
-        <h3>The schedule nobody else can see</h3>
-        <p>Assignments live in a spreadsheet on one machine. By the time it's emailed out it's already wrong, so everyone keeps their own copy.</p>
+        <h3>The schedule isn't shared</h3>
+        <p>Assignments live in a spreadsheet or a project file on one machine. Everyone downstream works from a copy that's already out of date, and changes don't propagate.</p>
       </div>
     </div>
   </div>
@@ -424,15 +424,15 @@
 <section id="company" class="dark section-pad proof">
   <div class="wrap">
     <div class="eyebrow"><span class="eyebrow-txt">Who built this</span></div>
-    <h2>Written by a Director of Field Operations. For Directors of Field Operations.</h2>
+    <h2>Built by a Director of Field Operations</h2>
     <div class="problem-grid company-grid">
       <div class="problem-col">
-        <h3>It solves a problem we had</h3>
-        <p>Resource Board was built inside a self-perform operation running crews across multiple active projects. Every feature exists because the schedule broke, payroll got re-keyed, or somebody showed up at the wrong job. Nothing in it was designed in a conference room.</p>
+        <h3>It came out of a real operation</h3>
+        <p>Resource Board was built to run crews across multiple active projects at a self-perform contractor. Every feature exists because something in the existing process broke.</p>
       </div>
       <div class="problem-col">
-        <h3>Built on the job, not in a lab</h3>
-        <p>Resource Board replaced a schedule that lived in Microsoft Project and three people's heads. It runs a live workforce every day — assignments, transfers, timecards, and look-ahead reporting — and it gets changed whenever a foreman says something doesn't work.</p>
+        <h3>It replaced Microsoft Project</h3>
+        <p>Project schedules tasks, not people, and it couldn't answer who was available or where they were going next. Resource Board runs a live workforce daily and changes whenever a foreman says something doesn't work.</p>
       </div>
     </div>
   </div>

@@ -253,7 +253,10 @@
     font-variant-numeric:tabular-nums;
   }
   .price-amount .per{font-family:'Barlow',sans-serif;font-weight:400;font-size:15px;color:var(--steel);letter-spacing:0;text-transform:none;margin-left:6px;}
-  .price-limit{margin-top:8px;font-size:14px;color:var(--steel);}
+  .price-monthly{margin-top:6px;font-size:14px;color:var(--steel);font-variant-numeric:tabular-nums;}
+  .price-limit{margin-top:10px;font-size:14px;color:var(--steel);font-variant-numeric:tabular-nums;}
+  .price-limit div + div{margin-top:2px;}
+  .pricing-note{margin-top:28px;text-align:center;font-size:14px;color:var(--steel);}
   .price-features{margin-top:20px;padding-top:20px;border-top:1px solid var(--line-dark);display:flex;flex-direction:column;gap:10px;list-style:none;}
   .price-features li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#0f172a;line-height:1.5;}
   .price-features li::before{content:"";display:block;flex-shrink:0;width:14px;height:14px;margin-top:4px;background:no-repeat center/contain url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path fill='none' stroke='%230e2241' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M2 7.5 L6 11 L12 3.5'/></svg>");}
@@ -562,13 +565,17 @@
   <div class="wrap">
     <div class="eyebrow"><span class="eyebrow-txt">Pricing</span></div>
     <h2>Priced by seat count. Billed annually.</h2>
-    <p class="pricing-head-sub">Seats are for the people who schedule, request, and approve — managers, supers, and foremen. Early access pricing, locked for your first two years.</p>
+    <p class="pricing-head-sub">Seats are for the people who schedule, request, and approve — managers, supers, and foremen. Annual billing saves roughly two months over monthly.</p>
     <div class="pricing-grid">
       <div class="price-col">
         <div class="price-card">
           <div class="price-tier">Starter</div>
           <div class="price-amount num">$4,800<span class="per">/year</span></div>
-          <div class="price-limit">Up to 25 users</div>
+          <div class="price-monthly">or $480/month</div>
+          <div class="price-limit">
+            <div>Up to 25 users</div>
+            <div>1 region</div>
+          </div>
           <ul class="price-features">
             <li>Live resource board</li>
             <li>Manpower request log</li>
@@ -586,7 +593,11 @@
         <div class="price-card featured">
           <div class="price-tier">Growth</div>
           <div class="price-amount num">$9,600<span class="per">/year</span></div>
-          <div class="price-limit">Up to 50 users</div>
+          <div class="price-monthly">or $960/month</div>
+          <div class="price-limit">
+            <div>Up to 50 users</div>
+            <div>3 regions</div>
+          </div>
           <ul class="price-features">
             <li>Live resource board</li>
             <li>Manpower request log</li>
@@ -603,7 +614,11 @@
         <div class="price-card">
           <div class="price-tier">Professional</div>
           <div class="price-amount num">$16,800<span class="per">/year</span></div>
-          <div class="price-limit">Up to 100 users</div>
+          <div class="price-monthly">or $1,680/month</div>
+          <div class="price-limit">
+            <div>Up to 100 users</div>
+            <div>5 regions</div>
+          </div>
           <ul class="price-features">
             <li>Live resource board</li>
             <li>Manpower request log</li>
@@ -618,10 +633,12 @@
       </div>
     </div>
 
+    <p class="pricing-note">Additional regions available on Starter at $1,500/year.</p>
+
     <div class="enterprise-band">
       <div>
         <div class="enterprise-label">Enterprise</div>
-        <div class="enterprise-copy">Unlimited users, custom configuration, dedicated onboarding, and priority support for larger self-perform operations.</div>
+        <div class="enterprise-copy">Unlimited users and unlimited regions, custom configuration, dedicated onboarding, and priority support for larger self-perform operations.</div>
       </div>
       <div>
         <a href="#early-access" class="btn btn-primary">Talk to us</a>

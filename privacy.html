@@ -120,7 +120,7 @@
   <div class="eyebrow"><span class="eyebrow-txt">Legal</span></div>
   <h1>Privacy Policy</h1>
   <p class="meta">
-    <strong>Effective:</strong> August 9, 2026 &nbsp;·&nbsp;
+    <strong>Effective:</strong> September 12, 2026 &nbsp;·&nbsp;
     <strong>Provider:</strong> Labor Production Services, LLC (New York)
   </p>
 </header>
@@ -168,6 +168,12 @@
   <p>Email address, display name, assigned role and permissions, and authentication records
   including sign-in timestamps. Passwords are managed by Google Firebase Authentication and are
   never visible to us.</p>
+  <p>We also keep a record of changes to an account: which administrator last changed its role or
+  permissions and when, whether the account was migrated from an earlier version of the Service and
+  when, whether it is flagged as an LPS internal account, and &mdash; where the Service asks account
+  holders to accept its terms of use &mdash; which version of those terms was accepted and at what
+  time. This exists so that a change to someone's access, or an agreement they entered into, can be
+  accounted for afterwards. It is kept for as long as the account exists.</p>
 
   <h3>Workforce records entered by customers</h3>
   <p>Resource Board is built to manage field labor, so customers enter information about their
@@ -182,7 +188,9 @@
       <tr><td><strong>Assignment</strong></td><td>Current and scheduled projects, commitment dates, transfer history</td></tr>
       <tr><td><strong>Availability</strong></td><td>Vacation dates, apprenticeship school dates, duty status, layoff and callback status</td></tr>
       <tr><td><strong>Contact</strong></td><td>Phone number, email, home address where entered by the customer</td></tr>
-      <tr><td><strong>Notes</strong></td><td>Free-text notes, skills, and internal classifications the customer chooses to record</td></tr>
+      <tr><td><strong>Payroll reference</strong></td><td>The customer's own employee number from their payroll or ERP system, where they choose to record it. This is an identifier internal to the customer, not a government identifier.</td></tr>
+      <tr><td><strong>Compensation arrangements</strong></td><td>Benefits and negotiated terms a customer records against a person &mdash; for example paid time off, paid holidays, and fuel or expense cards &mdash; together with free-text notes about those arrangements</td></tr>
+      <tr><td><strong>Notes</strong></td><td>Free-text notes, skills, and internal classifications the customer chooses to record. <strong>Free-text notes recorded against a project or a scheduled task are readable by every person signed in to that customer&rsquo;s board</strong>, including field staff. They are written by administrators; they are not private to them.</td></tr>
     </tbody>
   </table>
   </div>
@@ -202,8 +210,9 @@
   <div class="callout">
     <span class="lbl">What we do not do</span>
     <p>We do not sell personal information. We do not share it with advertisers. We do not use
-    customer data to train machine learning models. We do not use one customer's data to build or
-    improve anything for another customer.</p>
+    customer data to train machine learning models. We do not disclose one customer's records
+    &mdash; its people, its projects, or its schedules &mdash; to another customer, and we do not
+    use one customer's data to build or improve anything for another customer.</p>
   </div>
 </section>
 
@@ -219,18 +228,41 @@
     <tbody>
       <tr><td><strong>Google Firebase</strong></td><td>Database and authentication</td><td>All Service data and account credentials. Hosted in the United States.</td></tr>
       <tr><td><strong>Netlify</strong></td><td>Web hosting and forms</td><td>Site delivery, server logs, enquiry form submissions.</td></tr>
-      <tr><td><strong>EmailJS</strong></td><td>Email notifications</td><td>Recipient address and message content, where enabled.</td></tr>
-      <tr><td><strong>Twilio</strong></td><td>SMS notifications</td><td>Recipient phone number and message content, where enabled.</td></tr>
+      <tr><td><strong>Namecheap (Private Email)</strong></td><td>Delivery of email sent by our scheduled processes</td><td>Recipient address and message content.</td></tr>
+      <tr><td><strong>EmailJS</strong></td><td>Delivery of email sent from within the application</td><td>Recipient address and message content, where enabled.</td></tr>
+      <tr><td><strong>Twilio</strong></td><td>SMS notifications</td><td>Recipient phone number and message content, where a customer enables SMS.</td></tr>
+      <tr><td><strong>Anthropic</strong></td><td>Optional assistant features</td><td>See below.</td></tr>
+      <tr><td><strong>jsDelivr, Google Fonts</strong></td><td>Delivery of a code library and typefaces</td><td>Your IP address and browser user-agent, sent when a page loads. No cookie is set and we receive nothing back.</td></tr>
     </tbody>
   </table>
   </div>
   <p>We may add or change providers as the Service develops, and will update this list.</p>
+  <p><strong>Email sent by our scheduled processes comes from an address we control on our own
+  domain</strong> &mdash; info@laborproductionservices.com &mdash; and replies are directed to the
+  same address.</p>
+  <p><strong>Backups are not held by a vendor.</strong> Full snapshots of the database are taken on a
+  schedule and written to a private directory on a computer we control, with filesystem permissions
+  restricting access to the operator account. They are not stored with a cloud provider, and they are
+  not encrypted at rest. A snapshot contains everything in the database at the moment it was taken,
+  including the workforce information described in Section 3.</p>
+  <p><strong>The assistant features send board data to Anthropic.</strong> Several optional features
+  &mdash; question answering, planning, schedule analysis, and timecard scanning &mdash; work by
+  sending information to Anthropic's API. What is sent depends on the feature and includes employee
+  names, roles, teams, skills, statuses, vacation dates, project assignments, staffing requests, and,
+  for timecard scanning, <strong>the image file itself</strong>. These features run on an API key that
+  the customer supplies and stores in their own browser, so the request is made under the customer's
+  own account with Anthropic and is governed by the customer's agreement with them. We do not send
+  anything to Anthropic without a customer-supplied key present. Customers who do not want board data
+  leaving the Service should not enter a key.</p>
 </section>
 
 <section>
   <h2><span class="n">6</span> Text messages</h2>
-  <p>Where a customer enables SMS notifications, messages relate to work assignments, transfers,
-  and schedule changes. Message frequency varies with activity. Message and data rates may apply.</p>
+  <p>The Service is built to send SMS notifications, and will do so once carrier registration is
+  complete and a customer enables the feature. <strong>No messages have been sent to date.</strong>
+  When SMS is enabled, messages relate to work assignments, transfers, and schedule changes, and are
+  delivered through Twilio, which receives the recipient's phone number and the message content.
+  Message frequency varies with activity. Message and data rates may apply.</p>
   <p>Reply <strong>STOP</strong> to any message to opt out, or <strong>HELP</strong> for assistance.
   Opting out ends messages from the Service but does not remove the person's record from their
   employer's board. Carriers are not liable for delayed or undelivered messages.</p>
@@ -240,8 +272,12 @@
 <section>
   <h2><span class="n">7</span> Retention</h2>
   <ul>
-    <li><strong>Customer data</strong> is retained for as long as the customer's subscription is active. After termination it is kept for thirty (30) days to allow export, then deleted from active systems. Backup copies age out on the ordinary backup cycle.</li>
-    <li><strong>Enquiry form submissions</strong> are retained for up to twenty-four (24) months, then deleted.</li>
+    <li><strong>Customer data</strong> is retained for as long as the customer's subscription is active. We do not delete it automatically when an agreement ends.</li>
+    <li><strong>At the end of an agreement.</strong> On written request we will provide the customer with a complete export of their data and then permanently delete it, both within thirty (30) days of the request. The export is a single file covering the customer's entire record &mdash; including the restricted and classification data that the in-application backup does not cover. Deletion removes the customer's board, its user accounts and memberships, the address-to-account lookup for those users, and the entries identifying that customer in our scheduled-process logs.</li>
+    <li><strong>Backups.</strong> Snapshots are taken on an hourly schedule when the database has changed, and the fourteen most recent are kept &mdash; in practice a window of two to three weeks. Older snapshots are deleted automatically. Because a snapshot is a copy of the whole database, data deleted from the Service continues to exist in any snapshot taken before the deletion, until that snapshot rotates out. Snapshots retained outside that rotation for migration purposes are deleted at the same time as the active data.</li>
+    <li><strong>Staffing requests</strong> that have been fulfilled or voided are deleted from the database automatically twenty-one (21) days afterwards.</li>
+    <li><strong>Classification records</strong> described in Section 9b are never deleted while the customer's data is retained, and are removed when it is.</li>
+    <li><strong>Enquiry form submissions</strong> are held by Netlify and deleted on request. We do not operate an automatic expiry for them.</li>
     <li><strong>Business records</strong> such as invoices are retained as long as required for tax and legal purposes.</li>
   </ul>
 </section>
@@ -255,8 +291,13 @@
   your employer and, where we can identify the relevant customer, let them know you asked.</p>
 
   <h3>If you are a customer or account holder</h3>
-  <p>You can access, correct, export, or request deletion of your data at any time — most of it
-  directly within the Service, and otherwise by writing to us. We will respond within thirty (30) days.</p>
+  <p>You can access and correct your data directly within the Service, and account holders with
+  backup permission can export the contents of a region as a file at any time. Deleting an employee
+  record removes it from the database immediately. It does not remove the classification records
+  described in Section 9b, notes written about that person elsewhere in the Service, or scheduling
+  history &mdash; those are removed only when the customer's data as a whole is deleted, as described
+  in Section 7. For anything you cannot do within the Service, write to us; we will respond within
+  thirty (30) days.</p>
 
   <h3>If you submitted the enquiry form</h3>
   <p>Write to us and we will delete your submission.</p>
@@ -267,13 +308,100 @@
 
 <section>
   <h2><span class="n">9</span> Security</h2>
-  <p>Access to the Service requires authentication. Permissions are enforced at the database level,
-  not only in the interface, so that each account can reach only the data its role permits. Data is
-  encrypted in transit. Sensitive categories of information are restricted to specific roles.</p>
-  <p>No system is perfectly secure. We do not claim the Service is immune to compromise. If a breach
-  affecting personal information occurs, we will notify affected customers without undue delay and
-  cooperate with them in meeting their own notification obligations.</p>
+  <p>Access to the Service requires authentication. Data is encrypted in transit, and our database
+  and hosting providers state that they also encrypt it at rest. The database backups described in
+  Section 7 are an exception: they are protected by filesystem permissions on a machine we control,
+  and are not encrypted. Some
+  permissions are enforced at the database level rather than only in the interface &mdash; in
+  particular, the ability to <em>change</em> records is restricted by role and that restriction is
+  enforced by the database, not by the screen.</p>
+  <p><strong>Read access is broader than write access, and we would rather say so than imply
+  otherwise.</strong> A person signed in to a customer&rsquo;s board can generally read the workforce
+  and project records for the regions they are assigned to, including records the interface does not
+  display to them. Customers should treat anything entered into the Service as visible to their own
+  staff who use it.</p>
+  <p>No system is perfectly secure. We do not claim the Service is immune to compromise. If we
+  discover a breach affecting personal information, we will notify affected customers within thirty
+  (30) days of discovery, and will cooperate with them in meeting their own notification obligations
+  &mdash; the employer, not LPS, holds the direct relationship with the people whose records are in a
+  board.</p>
 </section>
+
+  <section>
+    <h2><span class="n">9a</span> What the database enforces, and what it does not</h2>
+
+    <p>This section separates two things that are easy to conflate. Some limits are enforced by the
+    database itself and hold regardless of what the interface shows. Others are choices the interface
+    makes, which a determined person with a valid login could work around. <strong>We describe them
+    separately because presenting the second as the first would overstate the protection.</strong></p>
+
+    <h3>Enforced by the database</h3>
+    <ul>
+      <li><strong>Procurement records &mdash; the Long Lead Tracker &mdash; are administrator-only,
+      for reading as well as writing.</strong> Vendor names, vendor contact details, lead times and
+      the procurement history of an item are not readable by ordinary users of a customer's board,
+      including supervisors and field staff.</li>
+      <li><strong>Where the Service records an internal classification of a person, that record
+      cannot be edited or deleted by anyone using the Service</strong>, including administrators.
+      Entries are add-only.</li>
+      <li><strong>Only an administrator can add such an entry</strong>, and the entry must identify
+      the administrator making it. A person cannot record an entry in someone else's name, and
+      cannot backdate one.</li>
+      <li><strong>Changing records &mdash; as opposed to reading them &mdash; is restricted by
+      role</strong> at the database level.</li>
+    </ul>
+
+    <h3>Not enforced by the database</h3>
+    <ul>
+      <li><strong>Free-text notes recorded against a project or a scheduled task are written only
+      by administrators &mdash; no foreman, manager or viewer can create one &mdash; and are readable
+      by everyone signed in to that customer's board, including field staff.</strong> They are shown
+      in the interface, not merely reachable in the database. This is deliberate: notes explain why a
+      task moved, and the people doing the work are the people who need to know. It also means a note
+      is visible to staff on other projects, and we have no way today to limit a note to one
+      project's participants. <em>Customers should not record anything about an individual in a
+      project note.</em></li>
+      <li><strong>Workforce records are readable by any user assigned to the region they belong
+      to.</strong> The interface shows a person only what is relevant to their role; the database
+      permits more. Customers should treat anything entered about an employee as visible to their own
+      staff who use the Service.</li>
+    </ul>
+
+    <p>We would rather a customer know the second list exists than discover it. We are narrowing it,
+    and this policy will be updated as items move from the second list to the first &mdash; not
+    before.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">9b</span> Records about a person that the Service keeps permanently</h2>
+    <p>Where an administrator records an internal classification of an employee &mdash; for example
+    marking someone as not eligible for reassignment &mdash; the Service records who made the change,
+    when, and the reason they gave. <strong>A reason is required to apply such a classification.</strong>
+    Removing the classification is also recorded, and does not erase the original entry.</p>
+    <p>These entries cannot be edited or deleted from within the Service by anyone, and they are not
+    removed when the classification is lifted. They are deleted only when the customer's data is
+    deleted, as described in Retention.</p>
+    <p><strong>Administrators should assume the reason they enter will be read later</strong> &mdash;
+    by their own organisation, by us if we are asked to investigate, and potentially by the person
+    concerned.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">9c</span> Employees whose records are held here</h2>
+    <p><strong>The people described in this Service are usually not the people who agreed to it.</strong>
+    Our customer is the employer. The individuals whose names, contact details, availability and
+    internal classifications are recorded are that employer's workforce, and most of them have no
+    account and may not know the Service exists.</p>
+    <p>We act on the employer's instructions in respect of those records. <strong>We do not have a
+    direct relationship with the individuals concerned, and the rights described in Section 8 are
+    exercised through the employer, not through us.</strong> If you are an employee of one of our
+    customers and want to know what is recorded about you, to correct it, or to contest an internal
+    classification, that request goes to your employer. We will support them in answering it, and we
+    will tell you to contact them if you approach us directly.</p>
+    <p>We say this plainly because an employee has no practical way of knowing otherwise, and because
+    a classification recorded here can be consequential.</p>
+  </section>
+
 
 <section>
   <h2><span class="n">10</span> Children</h2>

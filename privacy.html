@@ -120,7 +120,7 @@
   <div class="eyebrow"><span class="eyebrow-txt">Legal</span></div>
   <h1>Privacy Policy</h1>
   <p class="meta">
-    <strong>Effective:</strong> September 12, 2026 &nbsp;·&nbsp;
+    <strong>Effective:</strong> September 13, 2026 &nbsp;·&nbsp;
     <strong>Provider:</strong> Labor Production Services, LLC (New York)
   </p>
 </header>
@@ -259,14 +259,37 @@
 <section>
   <h2><span class="n">6</span> Text messages</h2>
   <p>The Service is built to send SMS notifications, and will do so once carrier registration is
-  complete and a customer enables the feature. <strong>No messages have been sent to date.</strong>
-  When SMS is enabled, messages relate to work assignments, transfers, and schedule changes, and are
-  delivered through Twilio, which receives the recipient's phone number and the message content.
-  Message frequency varies with activity. Message and data rates may apply.</p>
+  complete and a customer enables the feature. <strong>No messages have been sent to any workforce
+  member to date.</strong> When SMS is enabled, messages relate to work assignments, transfers, and
+  schedule changes, and are delivered through Twilio, which receives the recipient's phone number and
+  the message content. Message frequency varies with activity &mdash; typically a few messages per
+  worker per month, concentrated around assignment changes. Message and data rates may apply.</p>
+
+  <h3>How consent is obtained</h3>
+  <p>Consent is obtained by the employer, not by LPS. The employing contractor asks the worker in
+  person &mdash; during onboarding or at the jobsite &mdash; whether they agree to receive text
+  messages about their work assignments. In-person verbal consent is the only method the Service
+  supports: there is no web form, no keyword opt-in, and no bulk enrolment.</p>
+  <p>The contractor records that answer against the employee's record, and the Service stores who
+  recorded it, the date, and that the method was employer attestation. The default state is that
+  nobody has been asked, and <strong>no message is sent to a person in that state</strong>. The check
+  runs on our servers in the only code path that can reach Twilio, so a message to a number with no
+  recorded consent is refused and never sent.</p>
+
+  <h3>Stopping messages</h3>
   <p>Reply <strong>STOP</strong> to any message to opt out, or <strong>HELP</strong> for assistance.
-  Opting out ends messages from the Service but does not remove the person's record from their
-  employer's board. Carriers are not liable for delayed or undelivered messages.</p>
-  <p>Consent to receive messages is obtained by the employer, not by LPS.</p>
+  STOP, STOPALL, UNSUBSCRIBE, CANCEL, END and QUIT are all honoured. An opt-out is recorded against
+  the phone number and suppresses every future message to it; it takes precedence over the employer's
+  attestation, so an employer cannot restart messages by re-recording consent. Only the recipient can,
+  by replying START. Opting out ends messages from the Service but does not remove the person's record
+  from their employer's board. Carriers are not liable for delayed or undelivered messages.</p>
+
+  <h3>Text messaging data is never shared for marketing</h3>
+  <p>No mobile information &mdash; phone numbers, opt-in records, or consent data &mdash; is sold,
+  rented, or shared with third parties or affiliates for marketing or promotional purposes. Phone
+  numbers and message content are disclosed only to Twilio, the carrier, for the sole purpose of
+  delivering the message described above. Text-messaging originator opt-in data and consent are
+  excluded from every other category of sharing described in this policy.</p>
 </section>
 
 <section>

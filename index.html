@@ -327,6 +327,17 @@
   @media(max-width:560px){
     .footer-grid{grid-template-columns:1fr;}
   }
+
+  /* HOW IT STARTS. Two columns on desktop for the what-I-do / what-you-do pair,
+     stacked on narrow screens — the lists are short and reading them side by
+     side is the point: it shows the obligation runs both ways. */
+  .start-lede{font-size:17px;}
+  .start-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:26px 0 8px;}
+  .start-col h3{margin:0 0 8px;}
+  .start-col ul{margin:0;padding-left:20px;}
+  .start-col li{margin-bottom:8px;}
+  .start-cta{margin-top:26px;}
+  @media (max-width:720px){ .start-cols{grid-template-columns:1fr;gap:18px;} }
 </style>
 </head>
 <body>
@@ -643,6 +654,58 @@
       <div>
         <a href="#early-access" class="btn btn-primary">Talk to us</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT STARTS ============ -->
+<!-- Between pricing and the form on purpose: someone who has just read a price
+     is asking "and then what happens", and this answers it before the form. -->
+<section id="how-it-starts" class="light section-pad start">
+  <div class="wrap">
+    <div class="wrap-tight">
+      <h2>How it starts</h2>
+      <p class="start-lede"><strong>There is no free trial, and that is deliberate.</strong></p>
+      <p>A resource board is empty until your people, your projects and your regions are in it.
+         A trial that runs out before that work is done shows you an empty screen and teaches you
+         nothing about whether this fits your operation. Every contractor who has tried to evaluate
+         scheduling software over a weekend already knows how that ends.</p>
+      <p>So the first sixty days run as a pilot on one project, with me in it.</p>
+
+      <div class="start-cols">
+        <div class="start-col">
+          <h3>What I do</h3>
+          <ul>
+            <li>Load your roster, your regions and your active projects before anyone logs in.
+                You send a spreadsheet; I do the entry.</li>
+            <li>Walk your superintendents and foremen through it once, live, on the real board
+                with real names on it.</li>
+            <li>Stay reachable for the length of the pilot &mdash; one person, direct, not a
+                ticket queue.</li>
+          </ul>
+        </div>
+        <div class="start-col">
+          <h3>What you do</h3>
+          <ul>
+            <li>Run one project's staffing on the board for sixty days. Not a test project
+                &mdash; a live one, with real moves.</li>
+            <li>Give me one hour at the start and one at the end.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>How we know it worked</h3>
+      <p>We agree the test before we start. The usual one: at the end of sixty days, the people
+         running that project are reading the board instead of asking someone for the spreadsheet.
+         If that has not happened, it has not worked, and I would rather find that out on one
+         project than after a year's invoice.</p>
+
+      <h3>At the end</h3>
+      <p>Continue at the tier that matches your headcount, or stop. If you stop, you get a
+         complete export of everything you entered and it is deleted within thirty days. No notice
+         period, no auto-renewal into a year you did not agree to.</p>
+
+      <div class="start-cta"><a href="#early-access" class="btn btn-primary">Book a walkthrough</a></div>
     </div>
   </div>
 </section>
